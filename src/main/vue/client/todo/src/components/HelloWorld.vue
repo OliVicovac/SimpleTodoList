@@ -15,14 +15,14 @@
       <h2>UPDATE</h2>
       <input type="text" placeholder="TaskId" v-model="updTaskId">
       <input type="text" placeholder="Task name" v-model="updTaskName">
-
+       <input type="text" placeholder="new Description" v-model="updDes">
       <input type="button" v-on:click="updateTodo" value="send" name="" id="">
     </div>
     <br>
     <br>
     <ul>
       <div v-for="(element, index) in data" v-bind:key="index">
-          {{ index }}: todo:{{ element.task }}, description:{{ element.description }} <hr>
+          {{ index }}: todo: {{ element.task }}, <br> description: {{ element.description }} <hr align="left" width="300">
       </div>
     </ul>
   </div>
@@ -40,6 +40,7 @@ export default {
       newDescription:null,
       delTask: null,
       updTaskId: null,
+      updDes: null,
       updTaskName: null
     }
   },
@@ -66,7 +67,8 @@ export default {
     },
     updateTodo(){
       axios.put('http://127.0.0.1:5000/todos/'+this.updTaskId,{
-        task: this.updTaskName
+        task: this.updTaskName,
+        description: this.updDes
       })
       .then(res=>{
         this.listTodos()
