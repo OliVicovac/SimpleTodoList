@@ -1,22 +1,42 @@
 <template>
-<div>
-  <row>
-      <input v-model="message" placeholder="todo">
-      <input v-model="message" placeholder="description">
-      <button>Create TODO</button>
-  </row>
-</div>
+  <div class="home">
+    <table>
+      <thead>
+        <th>Hey</th>
+        <th>Jo</th>
+      </thead>
+      <tbody>
+        <tr v-for="(element, index) in data" v-bind:key="index">
+          <td>
+            {{ element }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    {{ data }}
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  import axios from 'axios'
+  export default {
+    name: 'HelloWorld',
+    data () {
+      return {
+        data: null
+      }
+    },
+    methods:{
+      listTodos(){
+        axios.get('http://127.0.0.1:8081/todos').then(res=>{
+          this.data = res.data;
+        })
+      }
+    },
+    created(){
+      this.listTodos()
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
