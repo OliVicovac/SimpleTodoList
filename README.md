@@ -3,10 +3,17 @@
 ## Aufgabenstellung
 Die detaillierte [Aufgabenstellung](TASK.md) beschreibt die notwendigen Schritte zur Realisierung.
 
-## Vue einbinden
+## Implementierung
+
+### Vue einbinden
 In den Ordner /src/main/vue/client gehen und dann den folgenden Befehl eingeben, damit vue installiert wird.
 
+Installieren:
+
 ```npm install -g @vue/cli```
-## Implementierung
+
+Initialisieren:
+
+```vue init webpack todo```
 
 ## Quellen
