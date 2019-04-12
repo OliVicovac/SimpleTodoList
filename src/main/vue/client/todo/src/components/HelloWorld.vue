@@ -1,22 +1,26 @@
 <template>
   <div class="HelloWorld">
-    <div>
-      <h2>CREATE</h2>
+    <section>
+      <label>Create an Todo</label>
+      <b-field>
+        <b-input type="text" placeholder="Task" v-model="newTask"></b-input>
+        <b-input type="text" placeholder="Description" v-model="newDescription"></b-input>
+        <b-button type="is-success" v-on:click="createTodo" id="buttonCreateTodo">create</b-button>
+      </b-field>
       <input type="text" placeholder="Task" v-model="newTask">
       <input type="text" placeholder="Description" v-model="newDescription">
-      <b-button type="is-success" v-on:click="createTodo" id="buttonCreateTodo">create</b-button>
-    </div>
+    </section>
     <div>
       <h2>DELETE</h2>
       <input type="text" placeholder="TaskId" v-model="delTask">
-      <input type="button" v-on:click="deleteTodo" value="send" name="" id="buttonDeleteTodo">
+      <b-button type="is-danger" v-on:click="deleteTodo" name="" id="buttonDeleteTodo">delete</b-button>
     </div>
     <div>
       <h2>UPDATE</h2>
       <input type="text" placeholder="TaskId" v-model="updTaskId">
       <input type="text" placeholder="Task name" v-model="updTaskName">
        <input type="text" placeholder="new Description" v-model="updDes">
-      <input type="button" v-on:click="updateTodo" value="send" name="" id="buttonUpdateTodo">
+      <b-button type="is-info" v-on:click="updateTodo" name="" id="buttonUpdateTodo">update</b-button>
     </div>
     <br>
     <br>
@@ -30,9 +34,10 @@
 
 <script>
 import axios from 'axios'
+import BButton from "../../node_modules/buefy/src/components/button/Button.vue";
 
 export default {
-  components: {},
+  components: {BButton},
   name: 'HelloWorld',
   data(){
     return {
