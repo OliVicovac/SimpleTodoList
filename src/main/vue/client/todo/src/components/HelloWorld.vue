@@ -4,19 +4,19 @@
       <h2>CREATE</h2>
       <input type="text" placeholder="Task" v-model="newTask">
       <input type="text" placeholder="Description" v-model="newDescription">
-      <input type="button" v-on:click="createTodo" value="send" name="" id="">
+      <b-button type="is-success" v-on:click="createTodo" id="buttonCreateTodo">create</b-button>
     </div>
     <div>
       <h2>DELETE</h2>
       <input type="text" placeholder="TaskId" v-model="delTask">
-      <input type="button" v-on:click="deleteTodo" value="send" name="" id="">
+      <input type="button" v-on:click="deleteTodo" value="send" name="" id="buttonDeleteTodo">
     </div>
     <div>
       <h2>UPDATE</h2>
       <input type="text" placeholder="TaskId" v-model="updTaskId">
       <input type="text" placeholder="Task name" v-model="updTaskName">
        <input type="text" placeholder="new Description" v-model="updDes">
-      <input type="button" v-on:click="updateTodo" value="send" name="" id="">
+      <input type="button" v-on:click="updateTodo" value="send" name="" id="buttonUpdateTodo">
     </div>
     <br>
     <br>
@@ -32,6 +32,7 @@
 import axios from 'axios'
 
 export default {
+  components: {},
   name: 'HelloWorld',
   data(){
     return {
